@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://5gly6nyy1467"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2pbnv"]
+radius = 0.412529
+height = 1.71375
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674872, 0)
+shape = SubResource("CapsuleShape3D_2pbnv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06972, 0)
+cull_mask = 1048063
+fov = 65.6167
+
+[node name="body" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0746205, 0.666678, 0)
+radius = 0.324706
+height = 1.65611
+
+[node name="nose" type="CSGCylinder3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 0.934111, 0.356983, 0, -0.356983, 0.934111, 0, 0.231593, -0.237427)
+layers = 512
+radius = 0.324706
+height = 0.0487183
