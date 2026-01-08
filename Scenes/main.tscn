@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d22ovkdv7jm8m"]
+[gd_scene load_steps=7 format=3 uid="uid://d22ovkdv7jm8m"]
 
-[ext_resource type="PackedScene" uid="uid://5gly6nyy1467" path="res://player.tscn" id="1_rt7lm"]
+[ext_resource type="Texture2D" uid="uid://crncvw24ke7x2" path="res://Textures/pngtree-wavy-halftone-texture-png-image_2583634.jpg" id="1_0bpnm"]
+[ext_resource type="PackedScene" uid="uid://5gly6nyy1467" path="res://Scenes/player.tscn" id="2_midom"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vg5lr"]
-albedo_color = Color(0.596078, 1, 0.25098, 1)
+albedo_color = Color(0.658824, 0.419608, 0.945098, 1)
+albedo_texture = ExtResource("1_0bpnm")
 metallic = 0.45
 roughness = 0.15
 backlight_enabled = true
@@ -22,21 +24,21 @@ sky = SubResource("Sky_gescd")
 transform = Transform3D(0.999921, 0.0125486, 0, -0.0125486, 0.999921, 0, 0, 0, 1, -0.0990627, 0, 0)
 
 [node name="Platform 1" type="CSGBox3D" parent="."]
-transform = Transform3D(0.31929, 0, 0.947657, 0, 1, 0, -0.947657, 0, 0.31929, 0.273112, 0.116211, 0.100595)
-size = Vector3(0.991211, 1.23242, 1.58203)
+transform = Transform3D(0.31929, 0, 0.947657, -2.98023e-08, 1, -5.96046e-08, -0.947657, 0, 0.31929, -0.109098, 0.116211, -0.0281813)
+size = Vector3(0.991211, 1.23242, 2.38867)
 material = SubResource("StandardMaterial3D_vg5lr")
 
 [node name="Platform 2" type="CSGBox3D" parent="."]
-transform = Transform3D(0.31929, 0, 0.947657, 0, 1, 0, -0.947657, 0, 0.31929, 2.26607, 0.116211, 0.100595)
-size = Vector3(0.991211, 1.23242, 1.58203)
+transform = Transform3D(0.31929, 0, 0.947657, -2.28174e-08, 1, -4.56348e-08, -0.947657, 0, 0.31929, 2.37807, 0.116211, -0.231814)
+size = Vector3(1.69275, 1.23242, 1.58203)
 material = SubResource("StandardMaterial3D_vg5lr")
 
 [node name="Platform 3" type="CSGBox3D" parent="."]
-transform = Transform3D(0.31929, 0, 0.947657, 0, 1, 0, -0.947657, 0, 0.31929, 1.04306, 2.08294, 0.100595)
-size = Vector3(0.991211, 1.23242, 1.58203)
+transform = Transform3D(0.31929, 0, 0.947657, -7.21775e-08, 1, -1.44355e-07, -0.947657, 0, 0.31929, 1.04027, 1.60408, -0.0178432)
+size = Vector3(0.991211, 1.70312, 1.58203)
 material = SubResource("StandardMaterial3D_vg5lr")
 
-[node name="Player" parent="." instance=ExtResource("1_rt7lm")]
+[node name="Player" parent="." instance=ExtResource("2_midom")]
 transform = Transform3D(0.31929, 0, 0.947657, 0, 1, 0, -0.947657, 0, 0.31929, 1.04306, 2.08294, 0.100595)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
