@@ -16,16 +16,17 @@ shape = SubResource("CapsuleShape3D_2pbnv")
 [node name="Camera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0726607, 1.06972, 0)
-cull_mask = 1048063
+cull_mask = 786431
 fov = 45.0
 
 [node name="body" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0746205, 0.666678, 0)
-radius = 0.324706
-height = 1.65611
+layers = 262144
+radius = 0.25673
+height = 1.27443
 
 [node name="nose" type="CSGCylinder3D" parent="body"]
-transform = Transform3D(1, 0, 0, 0, 0.934111, 0.356983, 0, -0.356983, 0.934111, 0, 0.231593, -0.237427)
+transform = Transform3D(1, 0, 0, 0, 0.957193, 0.28945, 0, -0.28945, 0.957193, 0, 0.231593, -0.0990323)
 layers = 512
 radius = 0.252769
 height = 0.045262

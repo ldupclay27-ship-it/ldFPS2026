@@ -19,27 +19,35 @@ sky_material = SubResource("ProceduralSkyMaterial_tesle")
 [sub_resource type="Environment" id="Environment_wyxx1"]
 background_mode = 2
 sky = SubResource("Sky_gescd")
+fog_enabled = true
+fog_light_energy = 1.16
+fog_density = 0.0
+fog_aerial_perspective = 0.12
+fog_sky_affect = 0.611
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(0.999921, 0.0125486, 0, -0.0125486, 0.999921, 0, 0, 0, 1, -0.0990627, 0, 0)
 
 [node name="Platform 1" type="CSGBox3D" parent="."]
-transform = Transform3D(0.31929, 0, 0.947657, -2.98023e-08, 1, -5.96046e-08, -0.947657, 0, 0.31929, -0.109098, 0.116211, -0.0281813)
+transform = Transform3D(0.31929, 0, 0.947657, -3.11993e-08, 1, -6.23986e-08, -0.947657, 0, 0.31929, -0.817501, -0.109402, 0.549834)
+use_collision = true
 size = Vector3(0.991211, 1.23242, 2.38867)
 material = SubResource("StandardMaterial3D_vg5lr")
 
 [node name="Platform 2" type="CSGBox3D" parent="."]
-transform = Transform3D(0.31929, 0, 0.947657, -2.28174e-08, 1, -4.56348e-08, -0.947657, 0, 0.31929, 2.37807, 0.116211, -0.231814)
+transform = Transform3D(0.31929, 0, 0.947657, -2.37487e-08, 1, -4.74975e-08, -0.947657, 0, 0.31929, 2.48499, -0.362885, -0.365892)
+use_collision = true
 size = Vector3(1.69275, 1.23242, 1.58203)
 material = SubResource("StandardMaterial3D_vg5lr")
 
 [node name="Platform 3" type="CSGBox3D" parent="."]
-transform = Transform3D(0.31929, 0, 0.947657, -7.21775e-08, 1, -1.44355e-07, -0.947657, 0, 0.31929, 1.04027, 1.60408, -0.0178432)
-size = Vector3(0.991211, 1.70312, 1.58203)
+transform = Transform3D(0.31929, 0, 0.947657, -9.45292e-08, 1, -1.89058e-07, -0.947657, 0, 0.31929, -0.632592, 0.0600388, -2.46293)
+use_collision = true
+size = Vector3(2.8219, 1.70312, 1.58203)
 material = SubResource("StandardMaterial3D_vg5lr")
 
 [node name="Player" parent="." instance=ExtResource("2_midom")]
-transform = Transform3D(0.31929, 0, 0.947657, 0, 1, 0, -0.947657, 0, 0.31929, 1.04306, 2.08294, 0.100595)
+transform = Transform3D(0.31929, 0.00076795, 0.947657, -0.000245205, 1, -0.000727783, -0.947657, -7.18203e-09, 0.31929, -1.38405, 1.64992, 0.393582)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.552235, 0.468117, 0.689858, -0.604261, -0.345346, 0.718056, 0.574374, -0.81339, 0.0921526, 11.9039, 10.5102, 0)
