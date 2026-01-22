@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var gravity:float = 10
 @export var max_jumps:int = 2
 var jumps: int = 0
+@export var muzzle_flash_time: float = 0.1
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -48,4 +49,24 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0
 	if is_on_floor():
 		jumps = 0
+		
 	move_and_slide()
+	
+	if Input.is_action_pressed("shoot") and $BulletTimer.is_stopped():
+		shoot_bullet()
+	
+
+func shoot_bullet():
+	# get a reference projectile scene
+	const BULLET_3D = preload("res://Scenes/projectile.tscn")
+	# instantiate'
+	var new_bullet = BULLET_3D.instantiate()
+	# add instance as a child
+	%ProjectileSpawnPoint.add_child(new_bullet)
+	# connect to spawn location 
+	new_bullet.transform = %ProjectileSpawnPoint.global_transform
+	# play sounds , turn on light , particles
+	$BulletTimer.start()
+	%MuzzleLight.visible = true
+	await get_tree().create_timer(0.1).timeout
+	%MuzzleLight.visible = false
