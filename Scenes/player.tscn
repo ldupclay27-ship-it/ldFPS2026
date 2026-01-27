@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5gly6nyy1467"]
+[gd_scene load_steps=21 format=3 uid="uid://5gly6nyy1467"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_f5imo"]
 [ext_resource type="PackedScene" uid="uid://blxyj6m6qoera" path="res://Models/gun_model.glb" id="2_fi51u"]
@@ -17,6 +17,13 @@ shading_mode = 0
 albedo_texture = ExtResource("4_5dqtk")
 albedo_texture_force_srgb = true
 
+[sub_resource type="Curve" id="Curve_tdfwp"]
+_data = [Vector2(0.00913242, 0.00818968), 0.0, 0.0, 0, 0, Vector2(0.995434, 0.361207), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_22ixt"]
+curve = SubResource("Curve_tdfwp")
+
 [sub_resource type="Curve" id="Curve_m3wiw"]
 _data = [Vector2(0.0205479, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.478879), 0.0, 0.0, 0, 0, Vector2(1, 0.69181), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -27,6 +34,7 @@ curve = SubResource("Curve_m3wiw")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_23sb4"]
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_c4hib")
+alpha_curve = SubResource("CurveTexture_22ixt")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1fhtg"]
 orientation = 2
