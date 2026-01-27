@@ -14,12 +14,13 @@ height = 1.71375
 transparency = 1
 blend_mode = 1
 shading_mode = 0
+vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("4_5dqtk")
 albedo_texture_force_srgb = true
 
 [sub_resource type="Curve" id="Curve_tdfwp"]
-_data = [Vector2(0.00913242, 0.00818968), 0.0, 0.0, 0, 0, Vector2(0.995434, 0.361207), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0.00913242, 0.00818968), 0.0, 0.0, 0, 0, Vector2(0.46347, 0.792672), 0.0, 0.0, 0, 0, Vector2(0.961187, 0.00818968), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_22ixt"]
 curve = SubResource("Curve_tdfwp")
