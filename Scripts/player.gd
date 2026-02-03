@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export var gravity:float = 10
 @export var max_jumps:int = 2
 var jumps: int = 0
-@export var muzzle_flash_time: float = 0.1
+@export var muzzle_flash_time: float = 0.2
 
 @onready var animationPlayer = $AnimationPlayer
 
