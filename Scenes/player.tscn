@@ -273,7 +273,7 @@ cull_mask = 786431
 fov = 45.0
 
 [node name="WeaponPlace" type="Node3D" parent="Camera3D" unique_id=2075752721]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0726607, -1.06972, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0.0726607, -1.06972, 0)
 
 [node name="gun_model" parent="Camera3D/WeaponPlace" unique_id=310350004 instance=ExtResource("2_fi51u")]
 transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0.303985, 0.94259, -0.676765)
@@ -318,7 +318,7 @@ draw_pass_1 = SubResource("SphereMesh_the25")
 
 [node name="Spark" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" unique_id=1750108450]
 unique_name_in_owner = true
-transform = Transform3D(-3.33207, 0.0886386, -0.0224913, 0.0199252, -0.0964157, -3.33187, -0.0892503, -3.33075, 0.0958486, -0.0701944, -0.25261, 0.611444)
+transform = Transform3D(-3.3323073, 0.07927892, -0.022221882, 0.019925201, -0.0964157, -3.3318703, -0.07988689, -3.330986, 0.095911436, -0.070194244, -0.25260997, 0.61144376)
 material_override = SubResource("StandardMaterial3D_3mx0p")
 emitting = false
 amount = 1

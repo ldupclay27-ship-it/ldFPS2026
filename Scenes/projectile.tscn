@@ -1,18 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://r73tvqbtknb0"]
+[gd_scene format=3 uid="uid://r73tvqbtknb0"]
 
 [ext_resource type="PackedScene" uid="uid://kfl4wqhjtgh2" path="res://Scenes/projectile_model.tscn" id="1_quxq8"]
-[ext_resource type="Script" path="res://Scenes/projectile.gd" id="1_wn5wj"]
+[ext_resource type="Script" uid="uid://c48oel03wjktj" path="res://Scenes/projectile.gd" id="1_wn5wj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4ytb"]
 radius = 0.408342
 
-[node name="Projectile" type="Area3D"]
+[node name="Projectile" type="Area3D" unique_id=1077145330]
 top_level = true
 script = ExtResource("1_wn5wj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1459305759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00739472, -0.00467375, 0.000634044)
 shape = SubResource("SphereShape3D_k4ytb")
 
-[node name="projectile_model" parent="." instance=ExtResource("1_quxq8")]
+[node name="projectile_model" parent="." unique_id=1817197779 instance=ExtResource("1_quxq8")]
 transform = Transform3D(4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

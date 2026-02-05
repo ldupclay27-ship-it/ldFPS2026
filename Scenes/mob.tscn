@@ -7,6 +7,7 @@
 radius = 0.264518
 
 [node name="Mob" type="RigidBody3D" unique_id=2125036307]
+gravity_scale = 0.0
 script = ExtResource("1_k16h8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1033278572]
