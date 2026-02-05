@@ -3,3 +3,4 @@ extends RigidBody3D
 
 func take_damage():
 	bat_model_inherited.hurt()
+	

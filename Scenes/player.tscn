@@ -1,6 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://5gly6nyy1467"]
+[gd_scene format=3 uid="uid://5gly6nyy1467"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_f5imo"]
+[ext_resource type="Script" uid="uid://t8famqqeoffh" path="res://Scripts/player.gd" id="1_f5imo"]
 [ext_resource type="PackedScene" uid="uid://blxyj6m6qoera" path="res://Models/gun_model.glb" id="2_fi51u"]
 [ext_resource type="Texture2D" uid="uid://cnphxn847hu2o" path="res://Models/reticle.png" id="3_drywp"]
 [ext_resource type="PackedScene" uid="uid://r73tvqbtknb0" path="res://Scenes/projectile.tscn" id="3_x2pg0"]
@@ -43,8 +43,7 @@ alpha_curve = SubResource("CurveTexture_22ixt")
 orientation = 2
 
 [sub_resource type="Curve" id="Curve_f88t8"]
-min_value = -360.0
-max_value = 20.0
+_limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0.0753425, -124.793), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -256,34 +255,34 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p74b1"]
 _data = {
-"MuzzleFlash": SubResource("Animation_ld2ee"),
-"RESET": SubResource("Animation_sp6mk")
+&"MuzzleFlash": SubResource("Animation_ld2ee"),
+&"RESET": SubResource("Animation_sp6mk")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=1755087472]
 script = ExtResource("1_f5imo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1216656683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674872, 0)
 shape = SubResource("CapsuleShape3D_2pbnv")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=135813680]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0726607, 1.06972, 0)
 cull_mask = 786431
 fov = 45.0
 
-[node name="WeaponPlace" type="Node3D" parent="Camera3D"]
+[node name="WeaponPlace" type="Node3D" parent="Camera3D" unique_id=2075752721]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0726607, -1.06972, 0)
 
-[node name="gun_model" parent="Camera3D/WeaponPlace" instance=ExtResource("2_fi51u")]
+[node name="gun_model" parent="Camera3D/WeaponPlace" unique_id=310350004 instance=ExtResource("2_fi51u")]
 transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0.303985, 0.94259, -0.676765)
 
-[node name="ProjectileSpawnPoint" type="Marker3D" parent="Camera3D/WeaponPlace/gun_model"]
+[node name="ProjectileSpawnPoint" type="Marker3D" parent="Camera3D/WeaponPlace/gun_model" unique_id=2070120243]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120025, 0, 0.516192)
 
-[node name="MuzzleLight" type="OmniLight3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
+[node name="MuzzleLight" type="OmniLight3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" unique_id=1064774652]
 unique_name_in_owner = true
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -0.00407207, 0, 0.175133)
 visible = false
@@ -292,30 +291,33 @@ light_energy = 1.964
 light_size = 10.0
 omni_range = 0.118918
 
-[node name="Projectile" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" instance=ExtResource("3_x2pg0")]
+[node name="Projectile" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" unique_id=901613373 instance=ExtResource("3_x2pg0")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.0215204, 0)
 
-[node name="2dTextureParticles" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
+[node name="2dTextureParticles" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" unique_id=1835114614]
+unique_name_in_owner = true
 transform = Transform3D(-0.999991, 0, 0.0040142, 0, 0.999999, 0, -0.0040142, 0, -0.999991, -0.000646949, 0, 0.0278366)
 material_override = SubResource("StandardMaterial3D_qa1a7")
 emitting = false
 amount = 1
-lifetime = 0.1
+lifetime = 0.2
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_23sb4")
 draw_pass_1 = SubResource("PlaneMesh_1fhtg")
 
-[node name="Explosion" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
+[node name="Explosion" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" unique_id=114806504]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 1.86265e-09, 0, 1, 0, -1.86265e-09, 0, 1, -0.000647068, 0, 0.0278366)
 emitting = false
 amount = 5
-lifetime = 0.2
+lifetime = 0.3
 one_shot = true
 explosiveness = 0.81
 process_material = SubResource("ParticleProcessMaterial_n3l40")
 draw_pass_1 = SubResource("SphereMesh_the25")
 
-[node name="Spark" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
+[node name="Spark" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" unique_id=1750108450]
+unique_name_in_owner = true
 transform = Transform3D(-3.33207, 0.0886386, -0.0224913, 0.0199252, -0.0964157, -3.33187, -0.0892503, -3.33075, 0.0958486, -0.0701944, -0.25261, 0.611444)
 material_override = SubResource("StandardMaterial3D_3mx0p")
 emitting = false
@@ -325,23 +327,23 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_rgsh6")
 draw_pass_1 = SubResource("PlaneMesh_ubiaf")
 
-[node name="body" type="CSGCylinder3D" parent="."]
+[node name="body" type="CSGCylinder3D" parent="." unique_id=149963069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0746205, 0.666678, 0)
 layers = 262144
 radius = 0.25673
 height = 1.27443
 
-[node name="nose" type="CSGCylinder3D" parent="body"]
+[node name="nose" type="CSGCylinder3D" parent="body" unique_id=260579298]
 transform = Transform3D(1, 0, 0, 0, 0.957193, 0.28945, 0, -0.28945, 0.957193, 0, 0.231593, -0.0990323)
 layers = 512
 radius = 0.252769
 height = 0.045262
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=270006527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.538172, 0)
 omni_range = 1.11362
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1738392572]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -356,15 +358,13 @@ grow_vertical = 2
 rotation = 0.785398
 texture = ExtResource("3_drywp")
 
-[node name="BulletTimer" type="Timer" parent="."]
+[node name="BulletTimer" type="Timer" parent="." unique_id=1327143058]
 wait_time = 0.599
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1857068352]
 root_node = NodePath("../Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint/2dTextureParticles")
-libraries = {
-"": SubResource("AnimationLibrary_p74b1")
-}
+libraries/ = SubResource("AnimationLibrary_p74b1")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1421021366]
 stream = ExtResource("7_l8jai")

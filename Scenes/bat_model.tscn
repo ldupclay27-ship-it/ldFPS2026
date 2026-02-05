@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3ip2ok8q6vs3"]
+[gd_scene format=3 uid="uid://c3ip2ok8q6vs3"]
 
 [ext_resource type="PackedScene" uid="uid://b3w2vp0dbsfa4" path="res://Models/bat_model.glb" id="1_c5n4m"]
-[ext_resource type="Script" path="res://Scenes/bat_model.gd" id="2_ud58q"]
+[ext_resource type="Script" uid="uid://35ysa31dsk6q" path="res://Scenes/bat_model.gd" id="2_ud58q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twenv"]
 transparency = 1
@@ -132,8 +132,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7urg"]
 _data = {
-"Idle": SubResource("Animation_lbgsd"),
-"RESET": SubResource("Animation_70ts1")
+&"Idle": SubResource("Animation_lbgsd"),
+&"RESET": SubResource("Animation_70ts1")
 }
 
 [sub_resource type="Animation" id="Animation_te3fw"]
@@ -165,7 +165,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6gpaf"]
 _data = {
-"hurt": SubResource("Animation_te3fw")
+&"hurt": SubResource("Animation_te3fw")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8v8hl"]
@@ -177,45 +177,43 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s13qi"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ts04g"]
-graph_offset = Vector2(-467.317, 83.1521)
+graph_offset = Vector2(-337, 73)
+nodes/output/position = Vector2(400, 120)
 nodes/Hurt/node = SubResource("AnimationNodeAnimation_8v8hl")
 nodes/Hurt/position = Vector2(-80, 360)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_2fvjh")
 nodes/Idle/position = Vector2(-80, 140)
 nodes/OneShot/node = SubResource("AnimationNodeOneShot_s13qi")
 nodes/OneShot/position = Vector2(200, 200)
-nodes/output/position = Vector2(400, 120)
-node_connections = [&"OneShot", 0, &"Idle", &"OneShot", 1, &"Hurt", &"output", 0, &"OneShot"]
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Idle", &"OneShot", 1, &"Hurt"]
 
-[node name="bat_model_inherited" instance=ExtResource("1_c5n4m")]
+[node name="bat_model_inherited" unique_id=2118848051 instance=ExtResource("1_c5n4m")]
 script = ExtResource("2_ud58q")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, 0.0197595, 0)
-bones/1/rotation = Quaternion(0.118454, 0.0454187, -0.669634, 0.731776)
-bones/2/rotation = Quaternion(0.144345, 0.0566046, 0.360616, 0.919737)
-bones/3/rotation = Quaternion(0.172035, 0.114754, 0.34185, 0.916719)
-bones/4/rotation = Quaternion(0.118454, -0.0454187, 0.669634, 0.731776)
-bones/5/rotation = Quaternion(0.144345, -0.0566046, -0.360616, 0.919737)
-bones/6/rotation = Quaternion(0.172035, -0.114754, -0.34185, 0.916719)
-bones/7/position = Vector3(0.130992, -0.227392, -0.0878515)
-bones/7/rotation = Quaternion(0.261968, 0.0834551, 0.265751, 0.924004)
-bones/8/rotation = Quaternion(3.33666e-08, 0.690969, 0.722884, 2.1893e-08)
-bones/10/position = Vector3(-0.130992, -0.227392, -0.0878515)
-bones/10/rotation = Quaternion(0.261968, -0.0834551, -0.265751, 0.924004)
-bones/11/rotation = Quaternion(2.52296e-08, 0.690969, 0.722884, 3.62045e-08)
+bones/0/position = Vector3(0, 0.00012558885, 0)
+bones/1/rotation = Quaternion(0.15657255, 0.024936473, -0.5930769, 0.78938144)
+bones/2/rotation = Quaternion(0.0009043371, 0.00040081286, 0.38750207, 0.9218683)
+bones/3/rotation = Quaternion(-0.11938522, 0.012134223, 0.29614732, 0.9475742)
+bones/4/rotation = Quaternion(0.15657255, -0.024936473, 0.5930769, 0.78938144)
+bones/5/rotation = Quaternion(0.0009043371, -0.00040081286, -0.38750207, 0.9218683)
+bones/6/rotation = Quaternion(-0.11938522, -0.012134223, -0.29614732, 0.9475742)
+bones/7/position = Vector3(0.130992, -0.227392, -0.087851495)
+bones/7/rotation = Quaternion(0.26196814, 0.08345515, 0.26575115, 0.92400455)
+bones/8/rotation = Quaternion(2.8521741e-08, 0.54267716, 0.8399414, 2.0228924e-08)
+bones/10/position = Vector3(-0.130992, -0.227392, -0.087851495)
+bones/10/rotation = Quaternion(0.26196814, -0.08345515, -0.26575115, 0.92400455)
+bones/11/rotation = Quaternion(2.5191202e-08, 0.54267716, 0.8399414, 4.3819515e-08)
 
 [node name="bat" parent="Armature/Skeleton3D" index="0"]
 material_overlay = SubResource("StandardMaterial3D_twenv")
 
 [node name="AnimationPlayer" parent="." index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_p7urg"),
-"custom": SubResource("AnimationLibrary_6gpaf")
-}
-autoplay = "Idle"
+libraries/ = SubResource("AnimationLibrary_p7urg")
+libraries/custom = SubResource("AnimationLibrary_6gpaf")
+autoplay = &"Idle"
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1054461044]
 tree_root = SubResource("AnimationNodeBlendTree_ts04g")
 anim_player = NodePath("../AnimationPlayer")
 parameters/OneShot/active = false

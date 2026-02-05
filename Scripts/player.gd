@@ -73,4 +73,7 @@ func shoot_bullet():
 	#%MuzzleLight.visible = true
 	#await get_tree().create_timer(0.1).timeout
 	#%MuzzleLight.visible = false
+	%Explosion.restart()
+	%Spark.restart()
+	%"2dTextureParticles".restart()
 	animationPlayer.play("MuzzleFlash")
